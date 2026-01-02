@@ -45,7 +45,7 @@ export const EcommerceTemplate = ({
   const { hasCollections, loading: loadingCollections } = useCollections()
 
   const header = (
-    <div className={`py-2 ${headerClassName}`}>
+    <div className={`py-4 backdrop-blur-xl bg-background/80 ${headerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -54,25 +54,17 @@ export const EcommerceTemplate = ({
           {/* Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex space-x-6">
-              {!loadingCollections && hasCollections && (
-                <ScrollLink 
-                  to="/#collections" 
-                  className="text-foreground/70 hover:text-foreground transition-colors"
-                >
-                  Collections
-                </ScrollLink>
-              )}
               <ScrollLink 
                 to="/#products" 
-                className="text-foreground/70 hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors font-mono text-sm tracking-wider"
               >
-                Products
+                SHOP
               </ScrollLink>
               <Link 
                 to="/blog" 
-                className="text-foreground/70 hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors font-mono text-sm tracking-wider"
               >
-                Blog
+                JOURNAL
               </Link>
             </nav>
           </div>
@@ -86,7 +78,7 @@ export const EcommerceTemplate = ({
                 variant="ghost"
                 size="icon"
                 onClick={openCart}
-                className="relative"
+                className="relative hover:bg-white/5"
                 aria-label="Ver carrito"
               >
                 <ShoppingCart className="h-5 w-5" />
@@ -113,45 +105,49 @@ export const EcommerceTemplate = ({
   )
 
   const footer = (
-    <div className={`bg-black text-white py-12 ${footerClassName}`}>
+    <div className={`bg-secondary/30 border-t border-white/10 py-16 ${footerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand */}
-          <div>
-            <BrandLogoLeft />
-            <p className="mt-4 text-white/70">
-              Your trusted online store
-            </p>
-          </div>
+        {/* Massive KINETIC Logo */}
+        <div className="mb-12 overflow-hidden">
+          <h2 className="text-[15vw] font-black tracking-tighter text-foreground/5 leading-none">
+            KINETIC
+          </h2>
+        </div>
 
-          {/* Links */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono text-xs">
+          {/* Manifest */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Links</h3>
-            <div className="space-y-2">
+            <p className="text-primary tracking-widest mb-4">MANIFEST</p>
+            <div className="space-y-2 text-muted-foreground">
               <Link 
                 to="/" 
-                className="block text-white/70 hover:text-white transition-colors"
+                className="block hover:text-foreground transition-colors"
               >
-                Home
+                HOME
               </Link>
               <Link 
                 to="/blog" 
-                className="block text-white/70 hover:text-white transition-colors"
+                className="block hover:text-foreground transition-colors"
               >
-                Blog
+                JOURNAL
               </Link>
             </div>
           </div>
 
-          {/* Social Links */}
+          {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Follow Us</h3>
+            <p className="text-primary tracking-widest mb-4">CONNECT</p>
             <SocialLinks />
           </div>
-        </div>
 
-        <div className="mt-8 pt-8 border-t border-white/20 text-center text-white/70">
-          <p>&copy; 2025 Your Store. All rights reserved.</p>
+          {/* Legal */}
+          <div>
+            <p className="text-primary tracking-widest mb-4">LEGAL</p>
+            <div className="space-y-2 text-muted-foreground">
+              <p>© 2025 KINETIC AUDIO</p>
+              <p>ALL RIGHTS RESERVED</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

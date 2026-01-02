@@ -60,11 +60,11 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
-      <SheetContent side="right" className="w-full sm:w-96 p-0" aria-describedby="cart-description">
+      <SheetContent side="right" className="w-full sm:w-96 p-0 bg-background border-l border-white/10" aria-describedby="cart-description">
         <div className="flex flex-col h-full">
-          <SheetHeader className="p-6 border-b">
-            <SheetTitle className="flex items-center gap-2">
-              Shopping Cart
+          <SheetHeader className="p-6 border-b border-white/10">
+            <SheetTitle className="flex items-center gap-2 font-black tracking-wider">
+              SHOPPING CART
               <Link to="/cart" onClick={onClose} className="hover:opacity-70 transition-opacity">
                 <ExternalLink className="h-4 w-4" />
               </Link>
@@ -93,10 +93,10 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
               {/* Cart Items */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4">
                 {state.items.map((item) => (
-                  <Card key={item.key}>
+                  <Card key={item.key} className="bg-card border-white/10">
                     <CardContent className="p-4">
                       <div className="flex items-start space-x-3">
-                        <div className="w-16 h-16 bg-muted rounded-md overflow-hidden flex-shrink-0">
+                        <div className="w-16 h-16 bg-secondary/30 rounded-md overflow-hidden flex-shrink-0">
                           {item.product.images && item.product.images.length > 0 || item.variant?.image ? (
                             <img
                               src={item.variant?.image || item.product.images![0]}
@@ -104,8 +104,8 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                               className="w-full h-full object-cover"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center text-muted-foreground text-xs">
-                              No image
+                            <div className="w-full h-full flex items-center justify-center text-muted-foreground text-xs font-mono">
+                              NO IMAGE
                             </div>
                           )}
                         </div>
@@ -121,32 +121,32 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                                 variant="outline"
                                 size="icon"
                                 onClick={() => updateQuantity(item.key, item.quantity - 1)}
-                                className="h-7 w-7"
+                                className="h-7 w-7 border-white/10 hover:border-white/30"
                               >
                                 <Minus className="h-3 w-3" />
                               </Button>
-                              <span className="font-medium px-2 text-sm">
+                              <span className="font-mono px-2 text-sm">
                                 {item.quantity}
                               </span>
                               <Button
                                 variant="outline"
                                 size="icon"
                                 onClick={() => updateQuantity(item.key, item.quantity + 1)}
-                                className="h-7 w-7"
+                                className="h-7 w-7 border-white/10 hover:border-white/30"
                               >
                                 <Plus className="h-3 w-3" />
                               </Button>
                             </div>
                             
                             <div className="text-right">
-                              <div className="font-semibold text-sm">
+                              <div className="font-bold text-sm font-mono">
                                 ${(((item.variant?.price ?? item.product.price) || 0) * item.quantity).toFixed(2)}
                               </div>
                               <Button
                                 variant="ghost"
                                 size="sm"
                                 onClick={() => removeItem(item.key)}
-                                className="text-destructive hover:text-destructive p-0 h-auto mt-1"
+                                className="text-destructive hover:text-destructive/80 p-0 h-auto mt-1"
                               >
                                 <Trash2 className="h-3 w-3" />
                               </Button>
@@ -160,21 +160,21 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
               </div>
 
               {/* Order Summary */}
-              <div className="border-t p-6">
+              <div className="border-t border-white/10 p-6">
                 <div className="space-y-3">
-                  <div className="flex justify-between font-semibold text-lg">
-                    <span>Total</span>
+                  <div className="flex justify-between font-bold text-xl font-mono">
+                    <span>TOTAL</span>
                     <span>${finalTotal.toFixed(2)}</span>
                   </div>
                 </div>
 
                 <Button 
-                  className="w-full mt-4" 
+                  className="w-full mt-4 font-mono tracking-wider" 
                   size="lg" 
                   onClick={handleCreateCheckout} 
                   disabled={isCreatingOrder}
                 >
-                  {isCreatingOrder ? 'Processing...' : 'Checkout'}
+                  {isCreatingOrder ? 'PROCESSING...' : 'CHECKOUT'}
                 </Button>
               </div>
             </>
