@@ -31,16 +31,12 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
           </h2>
         </div>
 
-        {/* Hero Video */}
+        {/* Hero Image */}
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <div className="relative">
-            <video 
-              src="/videos/hero-headphones-rotate.mp4" 
-              poster="/videos/hero-headphones-rotate-poster.jpg"
-              autoPlay
-              loop
-              muted
-              playsInline
+            <img 
+              src="/hero-headphones.jpg" 
+              alt="KINETIC PRO Headphones"
               className="w-full h-auto object-contain drop-shadow-2xl"
               style={{ filter: 'drop-shadow(0 0 80px rgba(204, 255, 0, 0.15))' }}
             />
@@ -158,7 +154,7 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
         <section id="products" className="py-24 px-4 max-w-7xl mx-auto">
           <div className="mb-12">
             <p className="font-mono text-xs text-primary tracking-widest mb-4">SHOP</p>
-            <h2 className="text-5xl font-black tracking-tight">Productos inspirados en Batman!</h2>
+            <h2 className="text-5xl font-black tracking-tight">Productos inspirados en Batman</h2>
           </div>
           
           {loading ? (
