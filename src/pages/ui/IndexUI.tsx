@@ -154,7 +154,7 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
         <section id="products" className="py-24 px-4 max-w-7xl mx-auto">
           <div className="mb-12">
             <p className="font-mono text-xs text-primary tracking-widest mb-4">SHOP</p>
-            <h2 className="text-5xl font-black tracking-tight">MODULAR PARTS</h2>
+            <h2 className="text-5xl font-black tracking-tight">Productos inspirados en Batman</h2>
           </div>
           
           {loading ? (
