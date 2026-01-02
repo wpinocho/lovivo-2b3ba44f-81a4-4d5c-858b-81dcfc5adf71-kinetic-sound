@@ -31,12 +31,16 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
           </h2>
         </div>
 
-        {/* Hero Image */}
+        {/* Hero Video */}
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <div className="relative">
-            <img 
-              src="/hero-headphones.jpg" 
-              alt="KINETIC PRO Headphones"
+            <video 
+              src="/videos/hero-headphones-rotation.mp4" 
+              poster="/videos/hero-headphones-rotation-poster.jpg"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-auto object-contain drop-shadow-2xl"
               style={{ filter: 'drop-shadow(0 0 80px rgba(204, 255, 0, 0.15))' }}
             />
