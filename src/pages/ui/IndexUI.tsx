@@ -4,6 +4,7 @@ import { FloatingCart } from '@/components/FloatingCart';
 import { EcommerceTemplate } from '@/templates/EcommerceTemplate';
 import type { UseIndexLogicReturn } from '@/components/headless/HeadlessIndex';
 import { Zap, Play } from 'lucide-react';
+import { ProductRecommender } from '@/components/ProductRecommender';
 
 interface IndexUIProps {
   logic: UseIndexLogicReturn;
@@ -78,6 +79,9 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
           </div>
         </div>
       </section>
+
+      {/* Product Recommender Form */}
+      <ProductRecommender products={filteredProducts} />
 
       {/* Spec Sheet Grid - Bento Style */}
       <section className="py-24 px-4 max-w-7xl mx-auto">
