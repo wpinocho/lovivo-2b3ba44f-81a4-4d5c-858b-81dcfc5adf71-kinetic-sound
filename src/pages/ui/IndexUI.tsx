@@ -4,7 +4,6 @@ import { FloatingCart } from '@/components/FloatingCart';
 import { EcommerceTemplate } from '@/templates/EcommerceTemplate';
 import type { UseIndexLogicReturn } from '@/components/headless/HeadlessIndex';
 import { Zap, Play } from 'lucide-react';
-import { ProductRecommender } from '@/components/ProductRecommender';
 
 interface IndexUIProps {
   logic: UseIndexLogicReturn;
@@ -32,16 +31,12 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
           </h2>
         </div>
 
-        {/* Hero Video */}
+        {/* Hero Image */}
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <div className="relative">
-            <video 
-              src="/videos/hero-headphones-rotation.mp4" 
-              poster="/videos/hero-headphones-rotation-poster.jpg"
-              autoPlay
-              loop
-              muted
-              playsInline
+            <img 
+              src="/hero-headphones.jpg" 
+              alt="KINETIC PRO Headphones"
               className="w-full h-auto object-contain drop-shadow-2xl"
               style={{ filter: 'drop-shadow(0 0 80px rgba(204, 255, 0, 0.15))' }}
             />
@@ -79,9 +74,6 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
           </div>
         </div>
       </section>
-
-      {/* Product Recommender Form */}
-      <ProductRecommender products={filteredProducts} />
 
       {/* Spec Sheet Grid - Bento Style */}
       <section className="py-24 px-4 max-w-7xl mx-auto">
